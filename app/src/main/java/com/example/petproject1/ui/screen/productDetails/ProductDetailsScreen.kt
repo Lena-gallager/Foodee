@@ -1,4 +1,4 @@
-package com.example.petproject1.ui.screen
+package com.example.petproject1.ui.screen.productDetails
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,11 +21,11 @@ import com.example.petproject1.data.ProductFlavorsData
 import com.example.petproject1.data.ProductNutritionData
 import com.example.petproject1.data.ProductNutritionState
 import com.example.petproject1.data.ProductPreviewState
-import com.example.petproject1.ui.screen.components.FlavorSection
-import com.example.petproject1.ui.screen.components.OrderActionBar
-import com.example.petproject1.ui.screen.components.ProductDescriptionSection
-import com.example.petproject1.ui.screen.components.ProductNutritionSection
-import com.example.petproject1.ui.screen.components.ProductPreviewSection
+import com.example.petproject1.ui.screen.productDetails.components.FlavorSection
+import com.example.petproject1.ui.screen.productDetails.components.OrderActionBar
+import com.example.petproject1.ui.screen.productDetails.components.ProductDescriptionSection
+import com.example.petproject1.ui.screen.productDetails.components.ProductNutritionSection
+import com.example.petproject1.ui.screen.productDetails.components.ProductPreviewSection
 
 @Composable
 fun ProductDetailsScreen(

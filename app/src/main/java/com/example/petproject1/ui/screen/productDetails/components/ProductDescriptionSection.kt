@@ -1,4 +1,4 @@
-package com.example.petproject1.ui.screen.components
+package com.example.petproject1.ui.screen.productDetails.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
