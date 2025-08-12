@@ -27,3 +27,33 @@ data class ProductPreviewState(
         )
     )
 )
+
+val BurgerProduct = ProductPreviewState(
+    headline = "Mr. Cheezy",
+    productImg = R.drawable.img_burger,
+    highlights = listOf(
+        ProductHighlightState(
+            text = "Classic Taste",
+            type = ProductHighlightType.SECONDARY,
+        ),
+        ProductHighlightState(
+            text = "Bestseller",
+            type = ProductHighlightType.PRIMARY,
+        )
+    ),
+)
+
+val FriesProduct = ProductPreviewState(
+    headline = "Fries M",
+    productImg = R.drawable.img_fries,
+    highlights = listOf(
+        ProductHighlightState(
+            text = "Classic Taste",
+            type = ProductHighlightType.SECONDARY,
+        ),
+        ProductHighlightState(
+            text = "Bestseller",
+            type = ProductHighlightType.PRIMARY,
+        )
+    ),
+)

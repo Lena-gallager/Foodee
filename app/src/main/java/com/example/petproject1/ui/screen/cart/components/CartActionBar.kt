@@ -1,6 +1,5 @@
-package com.example.petproject1.ui.screen.productDetails.components
+package com.example.petproject1.ui.screen.cart.components
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,18 +16,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.petproject1.data.OrderData
 import com.example.petproject1.data.OrderState
-import com.example.petproject1.ui.components.OrderCounterComponent
 import com.example.petproject1.ui.theme.AppTheme
 
 @Composable
-fun OrderActionBar(
+fun CartActionBar(
     modifier: Modifier = Modifier,
-    state: OrderState,
-    onAddItemClick: () -> Unit,
-    onRemoveItemClick: () -> Unit,
-    onCheckOutItemClick: () -> Unit,
+    orderState: OrderState,
+    onClicked: () -> Unit,
 ) {
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -43,22 +41,9 @@ fun OrderActionBar(
                 .height(76.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            OrderCounterComponent(
-                amount = state.amount,
-                onAddItemClick = onAddItemClick,
-                onRemoveItemClick = onRemoveItemClick,
-                modifier = Modifier
-                    .weight(weight = 1f)
-                    .fillMaxSize()
-                    .border(
-                        width = 1.dp,
-                        color = AppTheme.colors.secondarySurface,
-                        shape = RoundedCornerShape(20.dp),
-                    ),
-            )
             Cart(
-                totalPrice = state.totalPrice,
-                onClicked = onAddItemClick,
+                totalPrice = orderState.totalPrice,
+                onClicked = onClicked,
                 modifier = Modifier.weight(weight = 1f),
             )
         }
@@ -81,11 +66,12 @@ private fun Cart(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center,
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 Text(
-                    text = "Add to Cart",
+                    text = "Next step",
                     style = AppTheme.typography.titleSmall,
                 )
                 Text(
@@ -96,4 +82,13 @@ private fun Cart(
             }
         }
     }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun CartScreenPreview() {
+    CartActionBar(
+        orderState = OrderData,
+        onClicked = {},
+    )
 }

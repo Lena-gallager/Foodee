@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.petproject1.R
 import com.example.petproject1.data.ProductPreviewState
+import com.example.petproject1.ui.components.TopAppBar
 import com.example.petproject1.ui.theme.AppTheme
 
 @Composable
@@ -72,8 +73,9 @@ private fun Content(
     ) {
         val (actionBar, highlights, productImg) = createRefs()
 
-        ActionBar(
+        TopAppBar(
             headline = "Mr. Cheezy",
+            titleColor = AppTheme.colors.onSecondarySurface,
             modifier = Modifier
                 .padding(horizontal = 18.dp)
                 .constrainAs(actionBar) {
@@ -100,47 +102,5 @@ private fun Content(
                 top.linkTo(productImg.top)
             }
         )
-    }
-}
-
-@Composable
-fun ActionBar(
-    modifier: Modifier = Modifier,
-    headline: String,
-) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        Text(
-            text = headline,
-            style = AppTheme.typography.headline,
-            color = AppTheme.colors.onSecondarySurface,
-        )
-        CloseButton()
-    }
-}
-
-@Composable
-private fun CloseButton(
-    modifier: Modifier = Modifier,
-) {
-    Surface(
-        modifier = modifier.size(44.dp),
-        shape = RoundedCornerShape(16.dp),
-        color = AppTheme.colors.actionSurface,
-        contentColor = AppTheme.colors.secondarySurface,
-    ) {
-        Box(
-            modifier = modifier.fillMaxWidth(),
-            contentAlignment = Alignment.Center,
-        ) {
-            Icon(
-                painter = painterResource(R.drawable.ic_close),
-                contentDescription = null,
-                modifier = Modifier.size(24.dp),
-            )
-        }
     }
 }
